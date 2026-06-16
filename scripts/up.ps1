@@ -3,7 +3,7 @@ param([int]$Port = 8080)
 $ErrorActionPreference = "Stop"
 $root   = Split-Path -Parent $PSScriptRoot
 $runDir = Join-Path $root ".run"
-$srcDir = Join-Path $root "src"
+$srcDir = Join-Path $root "docs"
 New-Item -ItemType Directory -Force -Path $runDir | Out-Null
 
 # --- 1) Static web server ---------------------------------------------------
