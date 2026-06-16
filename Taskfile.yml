@@ -1,0 +1,26 @@
+version: '3'
+
+vars:
+  PORT: '8080'
+
+tasks:
+  up:
+    desc: "静的サーバ + Cloudflare トンネルを起動し、公開URLを表示する"
+    cmds:
+      - powershell -NoProfile -ExecutionPolicy Bypass -File scripts/up.ps1 -Port {{.PORT}}
+
+  down:
+    desc: "静的サーバ + Cloudflare トンネルを停止する"
+    cmds:
+      - powershell -NoProfile -ExecutionPolicy Bypass -File scripts/down.ps1
+
+  url:
+    desc: "現在の公開URLを表示する"
+    cmds:
+      - powershell -NoProfile -Command "if (Test-Path .run/url.txt) { Get-Content .run/url.txt } else { Write-Host 'No tunnel running yet - run task up first' }"
+
+  restart:
+    desc: "停止してから再起動する"
+    cmds:
+      - task: down
+      - task: up

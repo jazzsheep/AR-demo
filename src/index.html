@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Bubble AR</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="stage">
+    <video id="video" playsinline muted></video>
+    <canvas id="canvas"></canvas>
+
+    <div id="overlay">
+      <div class="hero">
+        <div class="orb"></div>
+        <h1>Bubble<span>AR</span></h1>
+        <p class="tagline">Touch the floating bubble with your hands</p>
+        <button id="startBtn">
+          <span>Start camera</span>
+        </button>
+        <p id="status" class="status"></p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
